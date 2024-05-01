@@ -18,6 +18,8 @@ export class QuestionaireService {
   ) {}
 
   getQuestionaire(): Observable<Questionaire> {
-    return this.api.get(this.url).pipe(adaptError(this.errorAdapter));
+    return this.api
+      .get<Questionaire>(this.url)
+      .pipe(adaptError(this.errorAdapter));
   }
 }

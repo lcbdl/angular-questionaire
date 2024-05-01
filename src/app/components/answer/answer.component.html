@@ -1,0 +1,12 @@
+<div
+  *ngIf="answer"
+  class="flex w-full my-4 border-slate-300 border rounded-md p-2 bg-slate-100 shadow-md align-middle justify-between"
+>
+  <div class="mt-1.5 ms-3">
+    <span class="font-bold mr-3">Question {{ answer.linkId }}: </span
+    ><span>{{ answer.text }}</span>
+  </div>
+  <div class="mt-1.5 ms-3">
+    <span class="font-bold mr-3">Answer: </span><span>{{ answer.answer }}</span>
+  </div>
+</div>

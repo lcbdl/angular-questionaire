@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpEvent } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 
@@ -8,19 +8,19 @@ import { Observable } from 'rxjs';
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  get(url: string, params = {}, opts = {}): Observable<any> {
-    return this.http.get(url, { ...opts, params });
+  get<T>(url: string, params = {}, opts = {}): Observable<T> {
+    return this.http.get<T>(url, { ...opts, params });
   }
 
-  post(url: string, body?: any, opts?: any): Observable<any> {
-    return this.http.post(url, body, opts);
+  post<T>(url: string, body?: any, opts?: any): Observable<HttpEvent<T>> {
+    return this.http.post<T>(url, body, opts);
   }
 
-  put(url: string, body?: any, opts = {}): Observable<any> {
-    return this.http.put(url, body, opts);
+  put<T>(url: string, body?: any, opts = {}): Observable<T> {
+    return this.http.put<T>(url, body, opts);
   }
 
-  delete(url: string, opts = {}): Observable<any> {
-    return this.http.delete(url, opts);
+  delete<T>(url: string, opts = {}): Observable<T> {
+    return this.http.delete<T>(url, opts);
   }
 }

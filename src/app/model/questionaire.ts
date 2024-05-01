@@ -31,3 +31,10 @@ export interface ValueCoding {
   code: string;
   display: string;
 }
+
+export interface Answer {
+  linkId: string;
+  text: string;
+  type: QuestionaireItemType;
+  answer: any;
+}

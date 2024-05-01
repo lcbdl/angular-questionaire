@@ -1,10 +1,10 @@
 import { Routes } from '@angular/router';
-import { QuestionaireComponent } from './pages/questionaire/questionaire.component';
+import { QuestionairePageComponent } from './pages/questionaire/questionaire.component';
 
 export const routes: Routes = [
   {
     path: 'questionaire',
-    component: QuestionaireComponent,
+    component: QuestionairePageComponent,
   },
   {
     path: '',

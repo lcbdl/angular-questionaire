@@ -21,13 +21,19 @@ import { QuestionaireItem } from '../../model/questionaire';
   templateUrl: './text-field.component.html',
 })
 export class TextFieldComponent {
+  /**
+   * @param rootFormGroup inject rootFormGroup
+   */
   constructor(private rootFormGroup: FormGroupDirective) {}
+
   @Input()
   item!: QuestionaireItem;
   form!: FormGroup;
   formControlName!: string;
 
   ngOnInit(): void {
+    // We have to have a form, otherwise a runtime error will happen
+    // "Error: formControlName must be used with a parent formGroup directive."
     this.form = this.rootFormGroup.control;
     this.formControlName = `item_${this.item?.linkId}`;
   }

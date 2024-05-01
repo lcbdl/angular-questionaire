@@ -1,0 +1,8 @@
+<div>
+  <div *ngFor="let answer of answers">
+    <app-answer [answer]="answer" />
+  </div>
+  <div class="text-right mt-10">
+    <button mat-raised-button color="warn" type="button" (click)="onReset()">Reset</button>
+  </div>
+</div>

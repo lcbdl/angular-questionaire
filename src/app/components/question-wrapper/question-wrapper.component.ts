@@ -2,6 +2,9 @@ import { AsyncPipe, CommonModule, NgComponentOutlet } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { FormGroup, ReactiveFormsModule } from '@angular/forms';
 
+/**
+ * This wrapper dynamically generate different component
+ */
 @Component({
   selector: 'app-question-wrapper',
   standalone: true,
@@ -13,8 +16,4 @@ export class QuestionWrapperComponent {
   question!: { component: any; inputs: any };
   @Input()
   formGroup!: FormGroup;
-
-  ngOnInit() {
-    console.log(this.question);
-  }
 }

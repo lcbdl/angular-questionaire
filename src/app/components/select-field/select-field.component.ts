@@ -23,7 +23,11 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './select-field.component.html',
 })
 export class SelectFieldComponent {
+  /**
+   * @param rootFormGroup inject rootFormGroup
+   */
   constructor(private rootFormGroup: FormGroupDirective) {}
+
   @Input()
   item!: QuestionaireItem;
   form!: FormGroup;
@@ -31,6 +35,8 @@ export class SelectFieldComponent {
   options!: ChoiceOption[];
 
   ngOnInit(): void {
+    // We have to have a form, otherwise a runtime error will happen
+    // "Error: formControlName must be used with a parent formGroup directive."
     this.form = this.rootFormGroup.control;
     this.formControlName = `item_${this.item?.linkId}`;
     this.options = this.item.option ?? [];
