@@ -3,6 +3,7 @@ import { Component, Input } from '@angular/core';
 import {
   FormControl,
   FormGroup,
+  FormGroupDirective,
   FormsModule,
   ReactiveFormsModule,
 } from '@angular/forms';
@@ -26,10 +27,14 @@ import { provideNativeDateAdapter } from '@angular/material/core';
   templateUrl: './date-field.component.html',
 })
 export class DateFieldComponent {
+  constructor(private rootFormGroup: FormGroupDirective) {}
   @Input()
   item!: QuestionaireItem;
+  form!: FormGroup;
+  formControlName!: string;
 
-  get formControlName() {
-    return `item_${this.item?.linkId}`;
+  ngOnInit(): void {
+    this.form = this.rootFormGroup.control;
+    this.formControlName = `item_${this.item?.linkId}`;
   }
 }

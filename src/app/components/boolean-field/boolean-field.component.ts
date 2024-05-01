@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormGroupDirective,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { QuestionaireItem } from '../../model/questionaire';
@@ -17,10 +21,14 @@ import { QuestionaireItem } from '../../model/questionaire';
   templateUrl: './boolean-field.component.html',
 })
 export class BooleanFieldComponent {
+  constructor(private rootFormGroup: FormGroupDirective) {}
   @Input()
-  item?: QuestionaireItem;
+  item!: QuestionaireItem;
+  form!: FormGroup;
+  formControlName!: string;
 
-  get formControlName() {
-    return `item_${this.item?.linkId}`;
+  ngOnInit(): void {
+    this.form = this.rootFormGroup.control;
+    this.formControlName = `item_${this.item?.linkId}`;
   }
 }

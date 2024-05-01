@@ -1,6 +1,10 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormGroupDirective,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { QuestionaireItem } from '../../model/questionaire';
@@ -17,10 +21,14 @@ import { QuestionaireItem } from '../../model/questionaire';
   templateUrl: './text-field.component.html',
 })
 export class TextFieldComponent {
+  constructor(private rootFormGroup: FormGroupDirective) {}
   @Input()
   item!: QuestionaireItem;
+  form!: FormGroup;
+  formControlName!: string;
 
-  get formControlName() {
-    return `item_${this.item?.linkId}`;
+  ngOnInit(): void {
+    this.form = this.rootFormGroup.control;
+    this.formControlName = `item_${this.item?.linkId}`;
   }
 }

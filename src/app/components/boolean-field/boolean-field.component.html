@@ -1,7 +1,6 @@
-
-  <mat-form-field *ngIf="item">
-    <mat-radio-group [formControlName]="formControlName">
-      <mat-radio-button value="true">True</mat-radio-button>
-      <mat-radio-button value="false">False</mat-radio-button>
-    </mat-radio-group>
-  </mat-form-field>
+<ng-container [formGroup]="form" *ngIf="item">
+  <mat-radio-group [formControlName]="formControlName">
+    <mat-radio-button value="true">True</mat-radio-button>
+    <mat-radio-button value="false">False</mat-radio-button>
+  </mat-radio-group>
+</ng-container>

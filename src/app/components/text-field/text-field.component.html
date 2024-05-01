@@ -1,8 +1,10 @@
-<mat-form-field *ngIf="item">
-  <input
-    class="border, p-1"
-    matInput
-    type="text"
-    [formControlName]="formControlName"
-  />
-</mat-form-field>
+<ng-container [formGroup]="form">
+  <mat-form-field *ngIf="item">
+    <input
+      class="border, p-1"
+      matInput
+      type="text"
+      [formControlName]="formControlName"
+    />
+  </mat-form-field>
+</ng-container>

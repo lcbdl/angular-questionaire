@@ -1,9 +1,13 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
-import { FormGroup, ReactiveFormsModule } from '@angular/forms';
+import {
+  FormGroup,
+  FormGroupDirective,
+  ReactiveFormsModule,
+} from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
-import { QuestionaireItem } from '../../model/questionaire';
+import { ChoiceOption, QuestionaireItem } from '../../model/questionaire';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
@@ -19,13 +23,16 @@ import { MatInputModule } from '@angular/material/input';
   templateUrl: './select-field.component.html',
 })
 export class SelectFieldComponent {
+  constructor(private rootFormGroup: FormGroupDirective) {}
   @Input()
   item!: QuestionaireItem;
+  form!: FormGroup;
+  formControlName!: string;
+  options!: ChoiceOption[];
 
-  get formControlName() {
-    return `item_${this.item?.linkId}`;
-  }
-  get options() {
-    return this.item.option ?? [];
+  ngOnInit(): void {
+    this.form = this.rootFormGroup.control;
+    this.formControlName = `item_${this.item?.linkId}`;
+    this.options = this.item.option ?? [];
   }
 }

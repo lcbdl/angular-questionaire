@@ -1,4 +1,4 @@
-
+<ng-container [formGroup]="form">
   <mat-form-field *ngIf="item">
     <input
       class="w-28"
@@ -10,3 +10,4 @@
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
+</ng-container>

@@ -1,23 +1,27 @@
-import { AsyncPipe, CommonModule, NgComponentOutlet } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import questionaire from '../../../assets/questionaire.json';
 import { BooleanFieldComponent } from '../../components/boolean-field/boolean-field.component';
 import { DateFieldComponent } from '../../components/date-field/date-field.component';
+import { QuestionWrapperComponent } from '../../components/question-wrapper/question-wrapper.component';
+import { SelectFieldComponent } from '../../components/select-field/select-field.component';
 import { TextFieldComponent } from '../../components/text-field/text-field.component';
 import {
-  Questionaire,
   QuestionaireItem,
   QuestionaireItemType,
 } from '../../model/questionaire';
-import { QuestionaireService } from '../../services/questionaire.service';
-import { SelectFieldComponent } from '../../components/select-field/select-field.component';
-import { QuestionWrapperComponent } from '../../components/question-wrapper/question-wrapper.component';
-import questionaire from '../../../assets/questionaire.json';
 
 @Component({
   selector: 'app-questionaire',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, QuestionWrapperComponent],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    QuestionWrapperComponent,
+    MatButtonModule,
+  ],
   templateUrl: './questionaire.component.html',
   styleUrl: './questionaire.component.css',
 })
