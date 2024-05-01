@@ -1,2 +1,6 @@
-<p>questionaire works!</p>
-<pre *ngIf="!!questionaire">{{questionaire | json}}</pre>
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="onSubmit()">
+  <app-question-wrapper
+    *ngFor="let question of questionaireUiList"
+    [question]="question"
+  />
+</form>

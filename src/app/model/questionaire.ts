@@ -12,7 +12,6 @@ export enum QuestionaireItemType {
   STRING = 'string',
   CHOICE = 'choice',
   DATE = 'date',
-  TEXT = 'text',
   BOOLEAN = 'boolean',
 }
 
