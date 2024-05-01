@@ -1,13 +1,7 @@
-<div
-  *ngIf="formGroup"
-  [formGroup]="formGroup"
-  class="flex w-ful border-slate-300 border rounded-md p-2 bg-slate-100 shadow-md align-middle justify-between"
->
-  <div class="mt-1">{{ item?.text }}</div>
-  <mat-form-field>
+
+  <mat-form-field *ngIf="item">
     <mat-radio-group [formControlName]="formControlName">
       <mat-radio-button value="true">True</mat-radio-button>
       <mat-radio-button value="false">False</mat-radio-button>
     </mat-radio-group>
   </mat-form-field>
-</div>

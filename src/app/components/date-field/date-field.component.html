@@ -1,8 +1,5 @@
-<div *ngIf="formGroup" [formGroup]="formGroup"
-  class="flex w-ful border-slate-300 border rounded-md p-2 bg-slate-100 shadow-md align-middle justify-between"
->
-  <div class="mt-1">{{ item.text }}</div>
-  <mat-form-field>
+
+  <mat-form-field *ngIf="item">
     <input
       class="w-28"
       matInput
@@ -13,4 +10,3 @@
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
     <mat-datepicker #picker></mat-datepicker>
   </mat-form-field>
-</div>

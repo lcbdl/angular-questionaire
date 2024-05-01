@@ -20,9 +20,6 @@ export class TextFieldComponent {
   @Input()
   item!: QuestionaireItem;
 
-  @Input()
-  formGroup!: FormGroup;
-
   get formControlName() {
     return `item_${this.item?.linkId}`;
   }

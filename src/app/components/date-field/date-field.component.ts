@@ -28,8 +28,6 @@ import { provideNativeDateAdapter } from '@angular/material/core';
 export class DateFieldComponent {
   @Input()
   item!: QuestionaireItem;
-  @Input()
-  formGroup!: FormGroup;
 
   get formControlName() {
     return `item_${this.item?.linkId}`;

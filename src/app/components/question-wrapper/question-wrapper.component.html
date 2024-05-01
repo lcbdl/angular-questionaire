@@ -1,5 +1,14 @@
 <section *ngIf="question">
+  
+</section>
+
+<div
+  *ngIf="question"
+  [formGroup]="formGroup"
+  class="flex w-ful border-slate-300 border rounded-md p-2 bg-slate-100 shadow-md align-middle justify-between"
+>
+  <div class="mt-1">{{ question.inputs.item.text }}</div>
   <ng-container
     *ngComponentOutlet="question.component; inputs: question.inputs"
   />
-</section>
+</div>
