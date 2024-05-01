@@ -1,0 +1,5 @@
+<section *ngIf="question">
+  <ng-container
+    *ngComponentOutlet="question.component; inputs: question.inputs"
+  />
+</section>

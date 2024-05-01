@@ -1,0 +1,18 @@
+<div *ngIf="formGroup && options" [formGroup]="formGroup"
+  class="flex w-ful border-slate-300 border rounded-md p-2 bg-slate-100 shadow-md align-middle justify-between"
+>
+  <div class="mt-1">{{ item.text }}</div>
+  
+  <!-- <mat-form-field>
+    <mat-label>Select</mat-label>
+    <mat-select>
+      <mat-option value="one">First option</mat-option>
+      <mat-option value="two">Second option</mat-option>
+    </mat-select>
+  </mat-form-field> -->
+  <mat-form-field>
+    <mat-select [formControlName]="formControlName">
+      <mat-option *ngFor="let option of options" value="{{option.valueCoding.code}}">{{option.valueCoding.display}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+</div>
