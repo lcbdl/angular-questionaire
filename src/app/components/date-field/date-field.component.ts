@@ -37,6 +37,8 @@ export class DateFieldComponent {
   form!: FormGroup;
   formControlName!: string;
 
+  today = new Date();
+
   ngOnInit(): void {
     // We have to have a form, otherwise a runtime error will happen
     // "Error: formControlName must be used with a parent formGroup directive."

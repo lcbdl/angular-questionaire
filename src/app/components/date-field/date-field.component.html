@@ -4,10 +4,11 @@
       class="w-28"
       matInput
       [matDatepicker]="picker"
+      [max]="today"
       placeholder="MM/DD/YYYY"
       [formControlName]="formControlName"
     />
     <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
+    <mat-datepicker #picker ></mat-datepicker>
   </mat-form-field>
 </ng-container>
