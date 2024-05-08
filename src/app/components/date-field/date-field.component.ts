@@ -30,10 +30,11 @@ export class DateFieldComponent {
   /**
    * @param rootFormGroup inject rootFormGroup
    */
-  constructor(private rootFormGroup: FormGroupDirective) {}
+  constructor() {}
 
   @Input()
   item!: QuestionaireItem;
+  @Input()
   form!: FormGroup;
   formControlName!: string;
 
@@ -42,7 +43,6 @@ export class DateFieldComponent {
   ngOnInit(): void {
     // We have to have a form, otherwise a runtime error will happen
     // "Error: formControlName must be used with a parent formGroup directive."
-    this.form = this.rootFormGroup.control;
     this.formControlName = `item_${this.item?.linkId}`;
   }
 }

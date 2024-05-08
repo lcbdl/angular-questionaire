@@ -75,6 +75,7 @@ export class QuestionairePageComponent {
     const result = items.map((item) => {
       const inputs = {
         item,
+        form: this.form,
       };
       switch (item.type) {
         case QuestionaireItemType.BOOLEAN:
